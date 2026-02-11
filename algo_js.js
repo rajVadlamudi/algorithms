@@ -28,3 +28,23 @@ const sort = (arr)=>{
 }
 test = [5,3,2,4,1]
 console.log(`sort(${test}):${sort(test)}`)
+
+const sum = (arr)=>{
+    let result = []
+    arr.flat()
+    for(let i=0; i<arr.length-1; i++) result.push(Number(arr[i])+Number(arr[i+1]))
+    return result
+}
+
+const pascal = (n)=>{
+    let result = []
+    let temp = []
+    for(let i=0; i<=Number(n); i++){
+        console.log('i:'+i);
+        i===0 ? result.push(1) : i===1 ? result.push([1,1]) : result.push([1,...sum(result[i-1]),1]); 
+    }
+    return result
+}
+test = 5
+// console.log(`sum(${test}):${sum(test)}`)
+console.log(`pascal(${test}):${pascal(test)}`)
